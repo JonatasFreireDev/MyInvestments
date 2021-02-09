@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { IColors } from '../../styles/theme';
 
 export const Container = styled.div`
   color: grey;
