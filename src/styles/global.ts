@@ -1,11 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
-  :root{
-    --main-theme-color: #451A0A;
-    --main-theme-words: #fff;
-    --button-primary-color: #C48942;
-  }
+  @import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
 
   *{
     margin: 0;
@@ -21,10 +17,10 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     height: 100%;
     overflow-x: hidden;
+    font-family: 'Maven Pro', sans-serif;
   }
 
   body, input, button{
-    font-family: 'Roboto Slab', serif;
     font-size: 16px;
   }
 
