@@ -20,6 +20,7 @@ const TextColor = (props: IColors) => props.theme.text.white;
 const ButtonColor = (props: IColors) => props.theme.button.primaryColor;
 
 export const Container = styled.div`
+  margin-top: 10px;
   display: block;
   position: relative;
   padding: 0px;

@@ -1,47 +1,55 @@
-import React, { InputHTMLAttributes, useRef, useState } from 'react';
+import React, { useRef, useEffect, useState, InputHTMLAttributes } from 'react';
 
 import { IconType } from 'react-icons';
+import { useField } from '@unform/core';
 
 import * as S from './styles';
 
-interface ErrorMessage {
-  err: boolean;
-  message: string;
-}
-
-interface Input extends InputHTMLAttributes<HTMLInputElement> {
-  label: string; //Nome Do Input
+interface IInput extends InputHTMLAttributes<HTMLInputElement> {
+  name: string; //Nome do input
+  label: string; //Nome Do label
   Icon?: IconType; //Icone para o Input
-  err?: ErrorMessage; //Mensagem de erro
   onTop?: boolean; //Se falso, deixa o label em cima padrao
 }
 
-const Input: React.FC<Input> = ({
+const Input: React.FC<IInput> = ({
   label,
   Icon,
-  err,
   onTop = false,
+  name,
   ...attrs
 }) => {
-  const InputRef = useRef<HTMLInputElement>(null);
-  const [InputValue, setInputValue] = useState(InputRef.current?.value);
+  const [valueOfInput, setValueOfInput] = useState('');
+  const inputRef = useRef<HTMLInputElement>(null);
+  const { fieldName, registerField, error } = useField(name);
+
+  useEffect(() => {
+    registerField({
+      name: fieldName,
+      path: 'value',
+      ref: inputRef.current,
+    });
+
+    if (error) setValueOfInput('');
+  }, [fieldName, registerField, error]);
 
   return (
     <S.Container
-      inputStatus={InputValue}
-      hasError={err?.err}
-      onTop={onTop}
+      hasError={error ? true : false}
       hasIcon={Icon ? true : false}
+      onTop={onTop}
     >
       <input
-        onChange={() => setInputValue(InputRef.current?.value)}
-        ref={InputRef}
+        value={valueOfInput}
+        onChange={e => setValueOfInput(e.target.value)}
+        ref={inputRef}
+        name={name}
         id={label}
         {...attrs}
       />
-      {Icon ? <Icon size="22" /> : ''}
+      {Icon && <Icon size="22" />}
+      {error && <small>{error}</small>}
       <label htmlFor={label}>{label}</label>
-      {err?.err ? <small>{err?.message}</small> : ''}
     </S.Container>
   );
 };

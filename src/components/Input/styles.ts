@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 import { IColors } from '../../styles/theme';
 
 interface InputStatus {
-  inputStatus?: string;
   hasError?: boolean;
   onTop?: boolean;
   hasIcon?: boolean;
@@ -23,18 +22,16 @@ export const Container = styled.div<InputStatus>`
   label {
     position: absolute;
     transition: all 0.5s ease;
-    top: ${(props: InputStatus) => (!props.onTop ? '5px' : '-15px')};
-    font-size: ${(props: InputStatus) => (!props.onTop ? '' : '14px')};
+    top: ${(props: InputStatus) => (props.onTop ? '-15px' : '5px')};
+    font-size: ${(props: InputStatus) => (props.onTop ? '14px' : '')};
     left: 10px;
   }
 
   svg {
     color: ${ColorInputNormal};
     position: absolute;
-    top: 50%;
     right: 5px;
     transition: all 0.3s;
-    transform: translateY(-50%);
   }
 
   input {
@@ -48,22 +45,36 @@ export const Container = styled.div<InputStatus>`
     width: 100%;
     transition: all 0.3s;
 
-    ${(props: InputStatus) =>
-      props.inputStatus
-        ? css`
-            border-bottom: 1px solid ${ColorInputActive};
+    &:not([value='']) {
+      border-bottom: 1px solid ${ColorInputActive};
 
-            & ~ label {
-              font-size: 14px;
-              top: -15px;
-              color: ${ColorInputActive};
-            }
+      & ~ label {
+        font-size: 14px;
+        top: -15px;
+        color: ${ColorInputActive};
+      }
 
-            & ~ svg {
-              color: ${ColorInputActive};
-            }
-          `
-        : ''}
+      & ~ svg {
+        color: ${ColorInputActive};
+      }
+
+      ${(props: InputStatus) =>
+        props.hasError
+          ? css`
+              border-bottom: 1px solid ${ColorInputError};
+
+              & ~ label {
+                font-size: 14px;
+                top: -15px;
+                color: ${ColorInputError};
+              }
+
+              & ~ svg {
+                color: ${ColorInputError};
+              }
+            `
+          : ''}
+    }
 
     ${(props: InputStatus) =>
       props.hasError
@@ -72,23 +83,6 @@ export const Container = styled.div<InputStatus>`
             & ~ label {
               color: ${ColorInputError};
             }
-            & ~ svg {
-              color: ${ColorInputError};
-            }
-          `
-        : ''}
-
-    ${(props: InputStatus) =>
-      props.hasError && props.inputStatus
-        ? css`
-            border-bottom: 1px solid ${ColorInputError};
-
-            & ~ label {
-              font-size: 14px;
-              top: -15px;
-              color: ${ColorInputError};
-            }
-
             & ~ svg {
               color: ${ColorInputError};
             }
