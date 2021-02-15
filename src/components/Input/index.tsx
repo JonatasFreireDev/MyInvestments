@@ -9,13 +9,13 @@ interface IInput extends InputHTMLAttributes<HTMLInputElement> {
   name: string; //Nome do input
   label: string; //Nome Do label
   Icon?: IconType; //Icone para o Input
-  onTop?: boolean; //Se falso, deixa o label em cima padrao
+  // onTop?: boolean; //Se falso, deixa o label em cima padrao
 }
 
 const Input: React.FC<IInput> = ({
   label,
   Icon,
-  onTop = false,
+  // onTop = false,
   name,
   ...attrs
 }) => {
@@ -37,7 +37,7 @@ const Input: React.FC<IInput> = ({
     <S.Container
       hasError={error ? true : false}
       hasIcon={Icon ? true : false}
-      onTop={onTop}
+      // onTop={onTop}
     >
       <input
         value={valueOfInput}

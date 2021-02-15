@@ -15,6 +15,14 @@ const move = keyframes`
   }
 `;
 
+const rotate = keyframes`
+  from{
+    transform: rotate(0deg);
+  }to{
+    transform: rotate(360deg);
+  }
+`;
+
 const IconColor = (props: IColors) => props.theme.icon.white;
 const TextColor = (props: IColors) => props.theme.text.white;
 const ButtonColor = (props: IColors) => props.theme.button.primaryColor;
@@ -26,7 +34,7 @@ export const Container = styled.div`
   padding: 0px;
   width: 100%;
 
-  svg {
+  & > svg {
     opacity: 0;
     color: ${IconColor};
     position: absolute;
@@ -37,14 +45,18 @@ export const Container = styled.div`
   }
 
   button {
-    margin: 20px 0px;
-    padding: 15px;
+    height: 50px;
     width: 100%;
     background-color: ${ButtonColor};
     color: ${TextColor};
     border: none;
     border-radius: 5px;
     transition: all 0.3s ease;
+
+    &:disabled {
+      opacity: 0.4;
+      color: ${TextColor};
+    }
 
     &:hover {
       background-color: ${darken(0.1, '#C48942')};
@@ -53,6 +65,12 @@ export const Container = styled.div`
     &:hover ~ svg {
       opacity: 1;
       animation: ${move} 1s infinite;
+    }
+
+    svg {
+      margin: auto;
+      color: ${IconColor};
+      animation: ${rotate} 0.7s infinite;
     }
   }
 `;

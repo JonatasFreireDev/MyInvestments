@@ -2,18 +2,16 @@ import React from 'react';
 
 import * as S from './styles';
 
-import LoadingCircle from '../../components/LoadingCircle';
-
 import Login from './Login';
+import Body from './Body';
 
 const Home: React.FC = () => {
   return (
-    <div>
-      <S.Container>
-        <Login />
-      </S.Container>
-      <LoadingCircle />
-    </div>
+    <S.Container>
+      <Login />
+      <S.Separador />
+      <Body />
+    </S.Container>
   );
 };
 
