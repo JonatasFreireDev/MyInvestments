@@ -28,7 +28,7 @@ interface IColors {
 const Colors = {
   theme: {
     mainTheme: '#451A0A',
-    secondTheme: '#dfdfdf',
+    secondTheme: '#EAEAEA',
   },
   button: {
     primaryColor: '#C48942',
