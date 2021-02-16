@@ -8,7 +8,7 @@ import Body from './Body';
 const Home: React.FC = () => {
   return (
     <S.Container>
-      {/* <Login /> */}
+      <Login />
       <Body />
     </S.Container>
   );

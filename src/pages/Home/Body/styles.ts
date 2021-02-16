@@ -15,9 +15,10 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   background-color: ${BackgroundColor};
-  margin: auto;
+  margin: 100px auto;
   width: 70vw;
-  height: 100vh;
+  min-height: 90vh;
+  height: 100%;
 
   & > div {
     display: flex;
@@ -35,17 +36,31 @@ export const Card = styled(IntersectionElement)`
   align-items: center;
   background-color: white;
   grid-auto-columns: 300px;
-  grid-auto-rows: 50px 1fr;
+  grid-auto-rows: 50px 1fr 80px;
   border-radius: 10px;
-  box-shadow: -2px 17px 46px -16px rgba(0, 0, 0, 0.84);
-  -webkit-box-shadow: -2px 17px 46px -16px rgba(0, 0, 0, 0.84);
-  -moz-box-shadow: -2px 17px 46px -16px rgba(0, 0, 0, 0.84);
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  svg {
+    font-size: 80px;
+    width: 100%;
+  }
 
   h2 {
+    font-size: 25px;
     text-align: center;
+    font-variant: small-caps;
   }
 
   p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    color: black;
+    padding: 10px;
+    text-align: center;
     margin: auto;
   }
 `;
@@ -53,12 +68,28 @@ export const Card = styled(IntersectionElement)`
 export const Title = styled.p`
   text-align: center;
   font-size: 32px;
-  margin: 100px 0px 50px 0px;
-  padding: auto;
+  margin: auto;
+  margin-bottom: 30px;
 `;
 
 export const Separador = styled.div`
   background-color: ${MainColor};
   width: 100%;
-  height: 100px;
+  height: 150px;
+`;
+
+export const Fight = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  background-color: ${BackgroundColor};
+  width: 100%;
+  height: 300px;
+
+  img {
+    margin: 100px;
+    height: 200px;
+  }
 `;
