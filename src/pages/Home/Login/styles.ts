@@ -58,7 +58,7 @@ export const Login = styled.div`
 
   img {
     margin: auto;
-    max-width: 220px;
+    max-width: 100%;
   }
 
   form {

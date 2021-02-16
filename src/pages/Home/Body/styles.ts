@@ -16,7 +16,7 @@ export const Container = styled.div`
 export const Content = styled.div`
   background-color: ${BackgroundColor};
   margin: 100px auto;
-  width: 70vw;
+  width: 80vw;
   min-height: 90vh;
   height: 100%;
 
@@ -26,6 +26,13 @@ export const Content = styled.div`
     flex-wrap: wrap;
     justify-content: center;
   }
+`;
+
+export const Title = styled.p`
+  text-align: center;
+  font-size: 32px;
+  margin: auto;
+  margin-bottom: 30px;
 `;
 
 export const Card = styled(IntersectionElement)`
@@ -63,13 +70,52 @@ export const Card = styled(IntersectionElement)`
     text-align: center;
     margin: auto;
   }
+
+  ul {
+    margin: 10px auto;
+  }
 `;
 
-export const Title = styled.p`
+export const Planos = styled(IntersectionElement)`
+  display: grid;
+  margin: 30px 60px;
+  grid-auto-flow: row;
+  padding: 15px;
+  align-items: center;
+  background-color: white;
+  grid-auto-columns: 300px;
+  grid-auto-rows: 50px 50px 1fr 50px 1fr;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  h2 {
+    font-size: 25px;
+    text-align: center;
+    font-variant: small-caps;
+  }
+
+  p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    margin: auto;
+  }
+
+  ul {
+    margin: 10px auto;
+  }
+`;
+
+export const Value = styled.div`
   text-align: center;
-  font-size: 32px;
-  margin: auto;
-  margin-bottom: 30px;
+  font-size: 25px;
+  width: 100%;
 `;
 
 export const Separador = styled.div`

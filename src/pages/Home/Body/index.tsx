@@ -3,6 +3,8 @@ import React from 'react';
 import ParallaxImage from '../../../assets/paralaxImage.svg';
 import Paralax from '../../../components/SimpleParallax';
 import { FcDataSheet, FcApproval, FcBullish, FcDebt } from 'react-icons/fc';
+import ButtonSubmitForm from '../../../components/ButtonSubmitForm';
+import { formatPrice } from '../../../util/format';
 
 import Touro from '../../../assets/touro.svg';
 import Urso from '../../../assets/urso.svg';
@@ -39,10 +41,17 @@ const Body: React.FC = () => {
           <S.Title>Planos</S.Title>
           <div>
             {plan.map(dat => (
-              <S.Card>
+              <S.Planos>
                 <h2>{dat.title}</h2>
                 <p>{dat.description}</p>
-              </S.Card>
+                <ul>
+                  {dat.att.map(att => (
+                    <li>{att}</li>
+                  ))}
+                </ul>
+                <S.Value>{formatPrice(dat.price, 'BRL')}</S.Value>
+                <ButtonSubmitForm>Cadastrar !</ButtonSubmitForm>
+              </S.Planos>
             ))}
           </div>
         </S.Content>
@@ -80,11 +89,21 @@ const objetive = [
 const plan = [
   {
     title: 'Free',
-    description: 'salve',
+    description: 'Um plano mais do que suficiente para voce começar !',
+    price: 0,
+    att: ['Cadastro de trading', 'Relatório de operações', 'Darf mensal'],
   },
   {
     title: 'Premium',
-    description: 'salve',
+    description:
+      'Algumas funcionalidades extras para potencializar a velocidade !',
+    price: 10,
+    att: [
+      'Cadastro de trading',
+      'Relatório de operações',
+      'Darf mensal',
+      'Importe notas de corretagem',
+    ],
   },
 ];
 
