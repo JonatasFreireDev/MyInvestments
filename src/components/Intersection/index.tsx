@@ -14,7 +14,6 @@ const Intersection: React.FC<AnyStyledComponent> = ({
   useEffect(() => {
     const observer: IntersectionObserver = new IntersectionObserver(
       entries => {
-        console.log(entries[0].isIntersecting);
         if (entries[0].isIntersecting === true) {
           setVisible(true);
         }

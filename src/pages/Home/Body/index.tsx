@@ -23,7 +23,7 @@ const Body: React.FC = () => {
           <S.Title>Objetivos</S.Title>
           <div>
             {objetive.map(dat => (
-              <S.Card>
+              <S.Card key={dat.title}>
                 <h2>{dat.title}</h2>
                 <p>{dat.description}</p>
                 {dat.icon}
@@ -33,20 +33,20 @@ const Body: React.FC = () => {
         </S.Content>
         <S.Separador />
         <S.Fight>
-          <img src={Touro} />
-          <img src={Urso} />
+          <img src={Touro} alt="Touro" />
+          <img src={Urso} alt="Urso" />
         </S.Fight>
         <S.Separador />
         <S.Content>
           <S.Title>Planos</S.Title>
           <div>
             {plan.map(dat => (
-              <S.Planos>
+              <S.Planos key={dat.title}>
                 <h2>{dat.title}</h2>
                 <p>{dat.description}</p>
                 <ul>
                   {dat.att.map(att => (
-                    <li>{att}</li>
+                    <li key={att}>{att}</li>
                   ))}
                 </ul>
                 <S.Value>{formatPrice(dat.price, 'BRL')}</S.Value>
