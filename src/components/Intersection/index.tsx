@@ -4,10 +4,11 @@ import { AnyStyledComponent } from 'styled-components';
 
 import * as S from './styles';
 
-const Intersection: React.FC<AnyStyledComponent> = ({
-  children,
-  className,
-}) => {
+interface ItersectionProps {
+  className?: AnyStyledComponent;
+}
+
+const Intersection: React.FC<ItersectionProps> = ({ children, className }) => {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
 
@@ -20,15 +21,16 @@ const Intersection: React.FC<AnyStyledComponent> = ({
       },
       { threshold: 0, rootMargin: '-150px' }
     );
+
     // @ts-ignore
     observer.observe(ref.current);
 
-    return () => {
-      if (ref.current) {
-        // @ts-ignore
-        observer.unobserve(ref.current);
-      }
-    };
+    // return () => {
+    //   if (ref.current) {
+    //     // @ts-ignore
+    //     observer.unobserve(currentRef);
+    //   }
+    // };
   }, []);
 
   return (
