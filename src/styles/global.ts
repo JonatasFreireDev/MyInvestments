@@ -9,6 +9,7 @@ export default createGlobalStyle`
   }
 
   body, html, #root{
+    scroll-behavior: smooth;
     display: flex;
     flex-direction: column;
     background: #fff;

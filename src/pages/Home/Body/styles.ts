@@ -14,13 +14,12 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  background-color: ${BackgroundColor};
-  margin: 100px auto;
-  width: 80vw;
-  min-height: 90vh;
-  height: 100%;
+  margin: auto;
+  padding: 100px;
+  min-height: 100vh;
 
   & > div {
+    background-color: ${BackgroundColor};
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -30,7 +29,7 @@ export const Content = styled.div`
 
 export const Title = styled.p`
   text-align: center;
-  font-size: 32px;
+  font-size: 42px;
   margin: auto;
   margin-bottom: 30px;
 `;
@@ -43,7 +42,7 @@ export const Card = styled(IntersectionElement)`
   align-items: center;
   background-color: white;
   grid-auto-columns: 300px;
-  grid-auto-rows: 50px 1fr 80px;
+  grid-auto-rows: 50px 1fr 120px;
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
 
@@ -56,8 +55,8 @@ export const Card = styled(IntersectionElement)`
     width: 100%;
   }
 
-  h2 {
-    font-size: 25px;
+  h1 {
+    font-size: 35px;
     text-align: center;
     font-variant: small-caps;
   }
@@ -92,8 +91,8 @@ export const Planos = styled(IntersectionElement)`
     transform: scale(1.1);
   }
 
-  h2 {
-    font-size: 25px;
+  h1 {
+    font-size: 35px;
     text-align: center;
     font-variant: small-caps;
   }
@@ -114,7 +113,7 @@ export const Planos = styled(IntersectionElement)`
 
 export const Value = styled.div`
   text-align: center;
-  font-size: 25px;
+  font-size: 35px;
   width: 100%;
 `;
 

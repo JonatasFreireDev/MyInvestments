@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
-import ParallaxImage from '../../../assets/paralaxImage.svg';
+import Trades from '../../../assets/trades.jpeg';
 import Paralax from '../../../components/SimpleParallax';
 import { FcDataSheet, FcApproval, FcBullish, FcDebt } from 'react-icons/fc';
 import ButtonSubmitForm from '../../../components/ButtonSubmitForm';
+import ToTopButton from '../../../components/ToTopButton';
 import { formatPrice } from '../../../util/format';
 
 import Touro from '../../../assets/touro.svg';
@@ -12,51 +13,56 @@ import Urso from '../../../assets/urso.svg';
 import * as S from './styles';
 
 const Body: React.FC = () => {
-  return (
-    <>
-      <S.Container>
-        <S.Separador />
-        <Paralax image={ParallaxImage} />
-        <S.Separador />
+  const ref = useRef(null);
 
-        <S.Content>
-          <S.Title>Objetivos</S.Title>
-          <div>
-            {objetive.map(dat => (
-              <S.Card key={dat.title}>
-                <h2>{dat.title}</h2>
-                <p>{dat.description}</p>
-                {dat.icon}
-              </S.Card>
-            ))}
-          </div>
-        </S.Content>
-        <S.Separador />
-        <S.Fight>
-          <img src={Touro} alt="Touro" />
-          <img src={Urso} alt="Urso" />
-        </S.Fight>
-        <S.Separador />
-        <S.Content>
-          <S.Title>Planos</S.Title>
-          <div>
-            {plan.map(dat => (
-              <S.Planos key={dat.title}>
-                <h2>{dat.title}</h2>
-                <p>{dat.description}</p>
-                <ul>
-                  {dat.att.map(att => (
-                    <li key={att}>{att}</li>
-                  ))}
-                </ul>
-                <S.Value>{formatPrice(dat.price, 'BRL')}</S.Value>
-                <ButtonSubmitForm>Cadastrar !</ButtonSubmitForm>
-              </S.Planos>
-            ))}
-          </div>
-        </S.Content>
-      </S.Container>
-    </>
+  return (
+    <S.Container>
+      <ToTopButton reference={ref} idElement="#top" />
+      <S.Separador />
+      <Paralax image={Trades} />
+      <S.Separador ref={ref} />
+
+      <S.Content>
+        <S.Title>Objetivos</S.Title>
+        <div>
+          {objetive.map(dat => (
+            <S.Card key={dat.title}>
+              <h1>{dat.title}</h1>
+              <p>{dat.description}</p>
+              {dat.icon}
+            </S.Card>
+          ))}
+        </div>
+      </S.Content>
+
+      <S.Separador />
+
+      <S.Fight>
+        <img src={Touro} alt="Touro" />
+        <img src={Urso} alt="Urso" />
+      </S.Fight>
+
+      <S.Separador />
+
+      <S.Content>
+        <S.Title>Planos</S.Title>
+        <div>
+          {plan.map(dat => (
+            <S.Planos key={dat.title}>
+              <h1>{dat.title}</h1>
+              <p>{dat.description}</p>
+              <ul>
+                {dat.att.map(att => (
+                  <li key={att}>{att}</li>
+                ))}
+              </ul>
+              <S.Value>{formatPrice(dat.price, 'BRL')}</S.Value>
+              <ButtonSubmitForm>Cadastrar !</ButtonSubmitForm>
+            </S.Planos>
+          ))}
+        </div>
+      </S.Content>
+    </S.Container>
   );
 };
 

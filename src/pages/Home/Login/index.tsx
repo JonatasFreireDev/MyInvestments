@@ -56,7 +56,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <S.Container>
+    <S.Container id="top">
       <S.Login>
         <img src={Logo} alt="Bear Trading" />
 
