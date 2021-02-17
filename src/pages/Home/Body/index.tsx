@@ -17,7 +17,7 @@ const Body: React.FC = () => {
 
   return (
     <S.Container>
-      <ToTopButton reference={ref} idElement="#top" />
+      <ToTopButton reference={ref} idElement="#top" heigth={700} />
       <S.Separador />
       <Paralax image={Trades} />
       <S.Separador ref={ref} />

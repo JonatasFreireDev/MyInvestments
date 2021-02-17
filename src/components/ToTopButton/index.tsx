@@ -8,6 +8,7 @@ import * as S from './styles';
 interface IToTopButtonProps {
   idElement: string;
   reference: any;
+  heigth: number;
   className?: AnyStyledComponent;
 }
 
@@ -19,18 +20,21 @@ interface IToTopButtonProps {
  *
  * @param {string} idElement - Id do elemento do topo.
  * @param {any} reference - Referencia do elemento para disparar o botao.
+ * @param {number} heigth - Configuração para aparecer o elemento.
+ *
  */
 const ToTopButton: React.FC<IToTopButtonProps> = ({
   idElement,
   reference,
   className,
+  heigth,
 }) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const observer: IntersectionObserver = new IntersectionObserver(
       entries => {
-        if (entries[0].boundingClientRect.y <= 700) {
+        if (entries[0].boundingClientRect.y <= heigth) {
           setVisible(true);
         } else {
           setVisible(false);

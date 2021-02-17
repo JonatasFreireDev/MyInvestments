@@ -12,6 +12,14 @@ interface IInput extends InputHTMLAttributes<HTMLInputElement> {
   // onTop?: boolean; //Se falso, deixa o label em cima padrao
 }
 
+/**
+ * Input ja estilizado para ser ultilizado junto a biblioteca Unform
+ *
+ * @param {string} name - Nome do Input para referencia de valores.
+ * @param {string} label - Nome do label para exibição.
+ * @param {IconType} Icon - Icone para exibir junto ao input (React-Icons) (Opcional)
+ *
+ */
 const Input: React.FC<IInput> = ({
   label,
   Icon,

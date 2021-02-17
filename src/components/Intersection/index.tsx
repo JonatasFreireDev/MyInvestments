@@ -8,6 +8,12 @@ interface ItersectionProps {
   className?: AnyStyledComponent;
 }
 
+/**
+ * Adiciona uma div, quando o scroll chegar na div, executa o efeito para mostrar a div.
+ *
+ * Poder ser estilizado com Styled-Components.
+ *
+ */
 const Intersection: React.FC<ItersectionProps> = ({ children, className }) => {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
