@@ -23,6 +23,7 @@ const Login: React.FC = () => {
     data,
     { reset }
   ) => {
+    formRef.current?.setErrors({});
     try {
       const schema = Yup.object().shape({
         email: Yup.string()
@@ -39,7 +40,6 @@ const Login: React.FC = () => {
 
       // Validation passed
       alert([data.email, data.senha]);
-      formRef.current?.setErrors({});
       reset();
     } catch (err) {
       const validationErrors = {};

@@ -1,20 +1,24 @@
 import React from 'react';
 
-import Routes from './routes';
-import GlobalStyle from './styles/global';
-import { Colors } from './styles/theme';
-
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+
+import store from './store';
+import GlobalStyle from './styles/global';
+import { Colors } from './styles/theme';
+import Routes from './routes';
 
 const App: React.FC = () => {
   return (
-    <ThemeProvider theme={Colors}>
-      <BrowserRouter>
-        <GlobalStyle />
-        <Routes />
-      </BrowserRouter>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={Colors}>
+        <BrowserRouter>
+          <GlobalStyle />
+          <Routes />
+        </BrowserRouter>
+      </ThemeProvider>
+    </Provider>
   );
 };
 

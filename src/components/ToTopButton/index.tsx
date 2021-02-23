@@ -52,7 +52,7 @@ const ToTopButton: React.FC<IToTopButtonProps> = ({
     //     observer.unobserve(currentRef);
     //   }
     // };
-  }, [reference]);
+  }, [reference, heigth]);
 
   return (
     <S.ToTop href={idElement} className={className} isVisible={visible}>
