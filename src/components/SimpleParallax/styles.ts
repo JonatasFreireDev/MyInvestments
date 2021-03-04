@@ -1,15 +1,11 @@
 import styled from 'styled-components';
 
-import { IColors } from '../../styles/theme';
-
-const BackgroundColor = (props: IColors) => props.theme.theme.mainTheme;
-
 interface IParalaxProps {
   Image: string;
 }
 
 export const Container = styled.div<IParalaxProps>`
-  background-color: ${BackgroundColor};
+  background-color: ${props => props.theme.theme.mainTheme};
   background-image: url(${props => props.Image});
   height: 300px;
   width: 100%;

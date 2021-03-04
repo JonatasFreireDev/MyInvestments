@@ -2,15 +2,9 @@ import styled from 'styled-components';
 
 import IntersectionElement from '../../../components/Intersection';
 
-import { IColors } from '../../../styles/theme';
-
-const MainColor = (props: IColors) => props.theme.theme.mainTheme;
-const BackgroundColor = (props: IColors) => props.theme.theme.secondTheme;
-const TextColor = (props: IColors) => props.theme.text.black;
-
 export const Container = styled.div`
-  background-color: ${BackgroundColor};
-  color: ${TextColor};
+  background-color: ${props => props.theme.theme.secondTheme};
+  color: ${props => props.theme.text.black};
 `;
 
 export const Content = styled.div`
@@ -19,7 +13,7 @@ export const Content = styled.div`
   min-height: 100vh;
 
   & > div {
-    background-color: ${BackgroundColor};
+    background-color: ${props => props.theme.theme.secondTheme};
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -118,7 +112,7 @@ export const Value = styled.div`
 `;
 
 export const Separador = styled.div`
-  background-color: ${MainColor};
+  background-color: ${props => props.theme.theme.mainTheme};
   width: 100%;
   height: 150px;
 `;
@@ -129,7 +123,7 @@ export const Fight = styled.div`
   align-items: center;
   justify-content: center;
 
-  background-color: ${BackgroundColor};
+  background-color: ${props => props.theme.theme.secondTheme};
   width: 100%;
   height: 300px;
 

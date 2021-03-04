@@ -1,17 +1,12 @@
 import styled from 'styled-components';
 
-import { IColors } from '../../../styles/theme';
-
-const MainColor = (props: IColors) => props.theme.theme.mainTheme;
-const TextColor = (props: IColors) => props.theme.text.white;
-
 export const Container = styled.div`
-  background-color: ${MainColor};
-  color: ${TextColor};
+  background-color: ${props => props.theme.theme.mainTheme};
+  color: ${props => props.theme.text.white};
 `;
 
 export const Separador = styled.div`
-  background-color: ${MainColor};
+  background-color: ${props => props.theme.theme.mainTheme};
   width: 100%;
   height: 150px;
 `;

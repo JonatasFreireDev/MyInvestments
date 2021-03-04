@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-import { IColors } from '../../styles/theme';
-
-const ButtonColor = (props: IColors) => props.theme.button.primaryColor;
-
 interface IButton {
   isVisible: boolean;
 }
@@ -27,6 +23,8 @@ export const ToTop = styled.a<IButton>`
   box-shadow: 0px 0px 10px rgb(0 0 0 / 70%);
 
   &:hover {
-    background-color: ${ButtonColor}; /* Add a dark-grey background on hover */
+    background-color: ${props =>
+      props.theme.button
+        .primaryColor}; /* Add a dark-grey background on hover */
   }
 `;

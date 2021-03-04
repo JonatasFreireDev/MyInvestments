@@ -1,7 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
 import { darken } from 'polished';
-import { IColors } from '../../styles/theme';
 
 const move = keyframes`
   0%{
@@ -23,10 +22,6 @@ const rotate = keyframes`
   }
 `;
 
-const IconColor = (props: IColors) => props.theme.icon.white;
-const TextColor = (props: IColors) => props.theme.text.white;
-const ButtonColor = (props: IColors) => props.theme.button.primaryColor;
-
 export const Container = styled.div`
   margin-top: 10px;
   display: block;
@@ -35,8 +30,8 @@ export const Container = styled.div`
   width: 100%;
 
   & > svg {
+    color: ${props => props.theme.icon.white};
     opacity: 0;
-    color: ${IconColor};
     position: absolute;
     top: 50%;
     right: 5px;
@@ -45,17 +40,17 @@ export const Container = styled.div`
   }
 
   button {
+    background-color: ${props => props.theme.button.primaryColor};
+    color: ${props => props.theme.text.white};
     height: 50px;
     width: 100%;
-    background-color: ${ButtonColor};
-    color: ${TextColor};
     border: none;
     border-radius: 5px;
     transition: all 0.3s ease;
 
     &:disabled {
+      color: ${props => props.theme.text.white};
       opacity: 0.4;
-      color: ${TextColor};
     }
 
     &:hover {
@@ -68,8 +63,8 @@ export const Container = styled.div`
     }
 
     svg {
+      color: ${props => props.theme.icon.white};
       margin: auto;
-      color: ${IconColor};
       animation: ${rotate} 0.7s infinite;
     }
   }

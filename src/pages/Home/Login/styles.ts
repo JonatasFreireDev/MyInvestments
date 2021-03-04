@@ -2,11 +2,6 @@ import styled, { keyframes } from 'styled-components';
 
 import LoginImage from '../../../assets/login.svg';
 
-import { IColors } from '../../../styles/theme';
-
-const BackgroundColor = (props: IColors) => props.theme.theme.mainTheme;
-const TextColor = (props: IColors) => props.theme.text.white;
-
 const pulse = keyframes`
 0%{
   opacity: 0;
@@ -35,8 +30,8 @@ export const Container = styled.div`
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  background-color: ${BackgroundColor};
-  color: ${TextColor};
+  background-color: ${props => props.theme.theme.mainTheme};
+  color: ${props => props.theme.text.white};
   height: 100vh;
 `;
 
